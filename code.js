@@ -40,6 +40,23 @@ client.on("message", (message) =>
 		message.author.send("henol i guess \n ok a list of commands: \n help (leads you to this) \n ping (pong!)");
 		console.log(message.content + " " + message.author.username);
 	}
+	//random tommunism selector
+	else if (message.content.startsWith(config.prefix + "tommunism"))
+	{
+		var i = Math.floor(Math.random() * 9) + 1;
+		message.channel.send({
+			files: [{
+				attachment: 'tommunism/' + i + '.png'
+			}]
+		})
+		console.log(message.content + " " + message.author.username);
+	}
+	//change presence
+	else if (message.content.startsWith(config.prefix + "presence"))
+	{
+		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
+		console.log(message.content + " " + args + "    " + message.author.username);
+	}
 });
 
 client.login(config.token);
