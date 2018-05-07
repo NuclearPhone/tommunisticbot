@@ -16,7 +16,7 @@ client.on("ready", () =>
 });
 
 // actual code for responses
-
+//
 client.on("message", (message) =>
 {
 	//removes botception
@@ -33,7 +33,12 @@ client.on("message", (message) =>
 	if (message.content.startsWith(config.prefix + "ping"))
 	{
 		message.channel.send("Pong!");
-		console.log("I have sent a message:   " + message.content + message.author.username);
+		console.log(message.content + " " + message.author.username);
+	}
+	else if (message.content.startsWith(config.prefix + "help"))
+	{
+		message.author.send("henol i guess \n ok a list of commands: \n help (leads you to this) \n ping (pong!)");
+		console.log(message.content + " " + message.author.username);
 	}
 });
 
