@@ -12,7 +12,7 @@ const config = require("./config.json");
 
 client.on("ready", () => 
 {
-	console.log("Tommunism Bot Is up and Running";)
+	console.log("Tommunism Bot Is up and Running");
 });
 
 // actual code for responses
