@@ -36,3 +36,5 @@ client.on("message", (message) =>
 		console.log("I have sent a message:   " + message.content + message.author.username);
 	}
 });
+
+client.login(config.token);
