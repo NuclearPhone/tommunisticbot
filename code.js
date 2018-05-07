@@ -30,7 +30,7 @@ client.on("message", (content) =>
 
 	//actual code
 	
-	if (message.content.startsWith(config.prefix + "ping")
+	if (message.content.startsWith(config.prefix + "ping"))
 	{
 		message.channel.send("Pong!");
 		console.log("I have sent a message:   " + message.content + message.author.username)
