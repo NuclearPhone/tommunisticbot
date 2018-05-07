@@ -17,7 +17,7 @@ client.on("ready", () =>
 
 // actual code for responses
 
-client.on("message", (content) =>
+client.on("message", (message) =>
 {
 	//removes botception
 	if (message.author.bot) return;
