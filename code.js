@@ -22,7 +22,7 @@ client.on("message", (message) =>
 	//removes botception
 	if (message.author.bot) return;
 	
-	if (message.content.indexof(config.prefix) !==0) return;
+	if (message.content.indexOf(config.prefix) !==0) return;
 	
 	//tokenize stuff
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
