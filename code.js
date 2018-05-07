@@ -8,6 +8,11 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
+
+//vars
+var fs = require('fs');
+
+
 //echos into console when ready
 
 client.on("ready", () => 
@@ -37,8 +42,10 @@ client.on("message", (message) =>
 	}
 	else if (message.content.startsWith(config.prefix + "help"))
 	{
-		message.author.send("henol i guess \n ok a list of commands: \n help (leads you to this) \n ping (pong!)");
-		console.log(message.content + " " + message.author.username);
+		fs.readFile('./help.txt', (err, data) => {
+			if (err) throw err;
+			message.author.send('henol i guess\n' + data);
+		});
 	}
 	//random tommunism selector
 	else if (message.content.startsWith(config.prefix + "tommunism"))

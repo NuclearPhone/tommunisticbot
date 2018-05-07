@@ -1,0 +1,4 @@
+HELP: brings up help menu
+PING: pong!
+TOMMUNISM: praise the lord t'hom!
+PRESENCE: changes presence.
