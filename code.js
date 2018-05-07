@@ -12,7 +12,7 @@ const config = require("./config.json");
 
 client.on("ready", () => 
 {
-	console.log("Tommunism Bot Is up and Running")
+	console.log("Tommunism Bot Is up and Running";)
 });
 
 // actual code for responses
@@ -33,6 +33,6 @@ client.on("message", (message) =>
 	if (message.content.startsWith(config.prefix + "ping"))
 	{
 		message.channel.send("Pong!");
-		console.log("I have sent a message:   " + message.content + message.author.username)
+		console.log("I have sent a message:   " + message.content + message.author.username);
 	}
 });
