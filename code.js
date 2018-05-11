@@ -65,6 +65,6 @@ client.on("message", (message) =>
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.username);
 	}
-});
+})
 
 client.login(config.token);
