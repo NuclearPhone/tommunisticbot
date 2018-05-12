@@ -71,6 +71,7 @@ client.on("message", (message) =>
 		message.channel.send("test");
 		console.log(message.content + " " + message.author.username);
 	}
+	//
 });
 
 client.login(config.token);
