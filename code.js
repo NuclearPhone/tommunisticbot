@@ -65,6 +65,12 @@ client.on("message", (message) =>
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.username);
 	}
+	//test succ command
+	else if (message.content.startsWith(config.prefix + "succ"))
+	{
+		message.channel.send("test");
+		console.log(message.content + " " + message.author.username);
+	}
 });
 
 client.login(config.token);
