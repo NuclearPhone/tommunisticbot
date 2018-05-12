@@ -71,7 +71,7 @@ client.on("message", (message) =>
 		message.channel.send("test");
 		console.log(message.content + " " + message.author.username);
 	}
-	//
+	// henlp me 
 });
 
 client.login(config.token);
