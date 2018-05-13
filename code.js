@@ -28,6 +28,9 @@ client.on("message", (message) =>
 	if (message.author.bot) return;
 	
 	if (message.content.indexOf(config.prefix) !==0) return;
+
+	//bean machine
+	if (config.bannedusers.indexOf(message.author.id) !==0) return;
 	
 	//tokenize stuff
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
@@ -38,7 +41,7 @@ client.on("message", (message) =>
 	if (message.content.startsWith(config.prefix + "ping"))
 	{
 		message.channel.send("Pong!");
-		console.log(message.content + " " + message.author.username);
+		console.log(message.content + " " + message.author.id);
 	}
 	else if (message.content.startsWith(config.prefix + "help"))
 	{
@@ -56,20 +59,20 @@ client.on("message", (message) =>
 				attachment: 'tommunism/' + i + '.png'
 			}]
 		})
-		console.log(message.content + " " + message.author.username);
+		console.log(message.content + " " + message.author.id);
 	}
 	//change presence
 	else if (message.content.startsWith(config.prefix + "presence"))
 	{
 		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
 		message.channel.send("Presence has been changed to: " + args.join(" "));
-		console.log(message.content + " " + args + "    " + message.author.username);
+		console.log(message.content + " " + args + "    " + message.author.id);
 	}
 	//test succ command
 	else if (message.content.startsWith(config.prefix + "succ"))
 	{
 		message.channel.send("test");
-		console.log(message.content + " " + message.author.username);
+		console.log(message.content + " " + message.author.id);
 	}
 	// henlp me 
 });
