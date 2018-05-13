@@ -30,12 +30,7 @@ client.on("message", (message) =>
 	if (message.content.indexOf(config.prefix) !==0) return;
 
 	//bean machine
-	if (config.bannedusers.includes(message.author.id) !==0)
-	{
-		console.log("test  " + message.author.id);
-		console.log(config.bannedusers.indexOf(message.author.id) !==0);
-		return;
-	}
+	if (!config.bannedusers.includes(message.author.id) == false ) return;
 	
 	//tokenize stuff
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
