@@ -62,8 +62,8 @@ client.on("message", (message) =>
 		console.log(message.content + " " + message.author.id);
 	}
 	//change presence
-	else if (message.content.startsWith(config.prefix + "presence"))
-	{
+	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == true)
+	{	
 		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.id);
