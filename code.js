@@ -20,8 +20,8 @@ client.on("ready", () =>
 	console.log("Tommunism Bot Is up and Running");
 });
 
-// actual code for responses
-//
+// actual code for response
+
 client.on("message", (message) =>
 {
 	//removes botception
@@ -44,30 +44,23 @@ client.on("message", (message) =>
 	}
 	else if (message.content.startsWith(config.prefix + "help"))
 	{
-		fs.readFile('./help.txt', (err, data) => {
-			if (err) throw err;
-			message.author.send('henol i guess\n' + data);
-		});
+		fs.readFile('./help.txt', (err, data) => {if (err) throw err;message.author.send('henol i guess\n' + data)});
 	}
 	//random tommunism selector
 	else if (message.content.startsWith(config.prefix + "tommunism"))
 	{
 		var i = Math.floor(Math.random() * 9) + 1;
-		message.channel.send({
-			files: [{
-				attachment: 'tommunism/' + i + '.png'
-			}]
-		})
+		message.channel.send({files: [{attachment: 'tommunism/' + i + '.png'}]})
 		console.log(message.content + " " + message.author.id);
 	}
 	//change presence
-	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == true)
+	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.indexOf(message.author.id) == true)
 	{	
 		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.id);
 	}
-	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == false)
+	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.indexOf(message.author.id) == false)
 	{
 		message.channel.send("fRIIICK fRiCK oFF! FRIcK OfF!");
 		console.log("someone got fricked  " + message.author.id);
