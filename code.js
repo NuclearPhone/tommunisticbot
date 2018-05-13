@@ -30,8 +30,7 @@ client.on("message", (message) =>
 	if (message.content.indexOf(config.prefix) !==0) return;
 
 	//bean machine
-	if (!config.bannedusers.includes(message.author.id) == false ) return;
-	
+	if (config.bannedusers.includes(message.author.id) == true ) return;	
 	//tokenize stuff
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
@@ -68,13 +67,23 @@ client.on("message", (message) =>
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.id);
 	}
+	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == false)
+	{
+		message.channel.send("fRIIICK fRiCK oFF! FRIcK OfF!");
+		console.log("someone got fricked  " + message.author.id);
+	}
 	//test succ command
 	else if (message.content.startsWith(config.prefix + "succ"))
 	{
 		message.channel.send("test");
 		console.log(message.content + " " + message.author.id);
 	}
-	// henlp me 
+	// slurp damn thats a good margarita
+	else if (message.content.startsWith(config.prefix + "slurp"))
+	{
+		message.channel.send({files:[{attachment:'tommunism/damnthatsagoodmargarita.png'}]});
+		console.log("damn thats a good margarita  " + message.author.id);
+	}
 });
 
 client.login(config.token);
