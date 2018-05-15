@@ -24,6 +24,7 @@ client.on("ready", () =>
 
 client.on("message", (message) =>
 {
+	
 	//removes botception
 	if (message.author.bot) return;
 	
@@ -54,15 +55,16 @@ client.on("message", (message) =>
 		console.log(message.content + " " + message.author.id);
 	}
 	//change presence
-	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.indexOf(message.author.id) == true)
+	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == true)
 	{	
 		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.id);
 	}
-	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.indexOf(message.author.id) == false)
+	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == false)
 	{
-		message.channel.send("fRIIICK fRiCK oFF! FRIcK OfF!");
+		message.channel.send("fRIIICK fRiCK oFF! FRIcK OfF!");i
+		console.log(message.author.id);
 		console.log("someone got fricked  " + message.author.id);
 	}
 	//test succ command
