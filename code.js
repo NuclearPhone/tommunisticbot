@@ -67,10 +67,10 @@ client.on("message", (message) =>
 		console.log(message.author.id);
 		console.log("someone got fricked  " + message.author.id);
 	}
-	//test succ command
+	//succ command
 	else if (message.content.startsWith(config.prefix + "succ"))
 	{
-		message.channel.send("test");
+		message.channel.send({files: [{attachment: 'tommunism/succ01.png'}]});
 		console.log(message.content + " " + message.author.id);
 	}
 	// slurp damn thats a good margarita
