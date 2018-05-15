@@ -24,7 +24,18 @@ client.on("ready", () =>
 
 client.on("message", (message) =>
 {
-	
+
+	//logging
+	function logfile(x)
+	{
+		fs.appendFile("./log.log", message.content + " " + message.author.id + " " + x + '\n', function(err) {
+			if(err) {
+				return console.log(err);
+			}
+		});
+	}
+
+
 	//removes botception
 	if (message.author.bot) return;
 	
@@ -42,6 +53,7 @@ client.on("message", (message) =>
 	{
 		message.channel.send("Pong!");
 		console.log(message.content + " " + message.author.id);
+		logfile();
 	}
 	else if (message.content.startsWith(config.prefix + "help"))
 	{
@@ -53,6 +65,7 @@ client.on("message", (message) =>
 		var i = Math.floor(Math.random() * 9) + 1;
 		message.channel.send({files: [{attachment: 'tommunism/' + i + '.png'}]})
 		console.log(message.content + " " + message.author.id);
+		logfile();
 	}
 	//change presence
 	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == true)
@@ -60,24 +73,28 @@ client.on("message", (message) =>
 		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.id);
+		logfile();
 	}
 	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == false)
 	{
 		message.channel.send("fRIIICK fRiCK oFF! FRIcK OfF!");i
 		console.log(message.author.id);
 		console.log("someone got fricked  " + message.author.id);
+		logfile("got fricced");
 	}
 	//succ command
 	else if (message.content.startsWith(config.prefix + "succ"))
 	{
 		message.channel.send({files: [{attachment: 'tommunism/succ01.png'}]});
 		console.log(message.content + " " + message.author.id);
+		logfile();
 	}
 	// slurp damn thats a good margarita
 	else if (message.content.startsWith(config.prefix + "slurp"))
 	{
 		message.channel.send({files:[{attachment:'tommunism/damnthatsagoodmargarita.png'}]});
 		console.log("damn thats a good margarita  " + message.author.id);
+		logfile();
 	}
 });
 
