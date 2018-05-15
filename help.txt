@@ -3,4 +3,5 @@ PING: pong!
 TOMMUNISM: praise the lord t'hom!
 PRESENCE: changes presence.  (privileged users only)
 SLURP: damn thats a good margarita.
+SUCC: ***S U C C***
 eat pant -uranium hexaflouride
