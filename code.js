@@ -42,7 +42,10 @@ client.on("message", (message) =>
 	if (message.content.indexOf(config.prefix) !==0) return;
 
 	//bean machine
-	if (config.bannedusers.includes(message.author.id) == true ) return;	
+	if (config.bannedusers.includes(message.author.id) == true ) {
+		consle.log('nerd got hecked');
+		return;	
+	}
 	//tokenize stuff
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
