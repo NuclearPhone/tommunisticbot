@@ -43,7 +43,7 @@ client.on("message", (message) =>
 
 	//bean machine
 	if (config.bannedusers.includes(message.author.id) == true ) {
-		consle.log('nerd got hecked');
+		consle.log('nerd got hecked' + message.author.id);
 		return;	
 	}
 	//tokenize stuff
@@ -99,6 +99,12 @@ client.on("message", (message) =>
 		console.log("damn thats a good margarita  " + message.author.id);
 		logfile();
 	}
+	//displays git link
+	else if (message.content.startsWith(config.prefix + "git"))
+	{
+		message.channel.send("https://github.com/nuclearphone/tommunisticbot");
+		console.log("someone requested a git " + message.author.id);
+		logfile();
 });
 
 client.login(config.token);
