@@ -105,6 +105,7 @@ client.on("message", (message) =>
 		message.channel.send("https://github.com/nuclearphone/tommunisticbot");
 		console.log("someone requested a git " + message.author.id);
 		logfile();
+	}
 });
 
 client.login(config.token);
