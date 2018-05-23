@@ -98,7 +98,7 @@ client.on("message", (message) =>
 	{
 		message.channel.send({files:[{attachment:'tommunism/damnthatsagoodmargarita.png'}]});
 		console.log("damn thats a good margarita  " + message.author.id);
-		logfile("slurped a good margarita");
+		logfile("slurped a good margarita" + message.author.id);
 	}
 	//displays git link
 	else if (message.content.startsWith(config.prefix + "git"))
