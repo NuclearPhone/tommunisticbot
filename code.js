@@ -18,6 +18,7 @@ var fs = require('fs');
 client.on("ready", () => 
 {
 	console.log("Tommunism Bot Is up and Running");
+	console.log("you gay fo readin' this");
 });
 
 // actual code for response
@@ -97,7 +98,7 @@ client.on("message", (message) =>
 	{
 		message.channel.send({files:[{attachment:'tommunism/damnthatsagoodmargarita.png'}]});
 		console.log("damn thats a good margarita  " + message.author.id);
-		logfile();
+		logfile("slurped a good margarita");
 	}
 	//displays git link
 	else if (message.content.startsWith(config.prefix + "git"))
