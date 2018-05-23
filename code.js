@@ -39,11 +39,11 @@ client.on("message", (message) =>
 	//removes botception
 	if (message.author.bot) return;
 	
-	if (message.content.indexOf(config.prefix) !==0) return;
+	if (message.content.indexOf(config.prefix) !==0 && message.content.indexOf("yam") < 0) return;
 
 	//bean machine
 	if (config.bannedusers.includes(message.author.id) == true ) {
-		consle.log('nerd got hecked' + message.author.id);
+		console.log('nerd got hecked' + message.author.id);
 		return;	
 	}
 	//tokenize stuff
@@ -66,7 +66,7 @@ client.on("message", (message) =>
 	else if (message.content.startsWith(config.prefix + "tommunism"))
 	{
 		var i = Math.floor(Math.random() * 9) + 1;
-		message.channel.send({files: [{attachment: 'tommunism/' + i + '.png'}]})
+		message.channel.send({files: [{attachment: config.imagefolder + i + '.png'}]})
 		console.log(message.content + " " + message.author.id);
 		logfile();
 	}
@@ -88,7 +88,7 @@ client.on("message", (message) =>
 	//succ command
 	else if (message.content.startsWith(config.prefix + "succ"))
 	{
-		message.channel.send({files: [{attachment: 'tommunism/succ01.png'}]});
+		message.channel.send({files: [{attachment: config.succimg}]});
 		console.log(message.content + " " + message.author.id);
 		logfile();
 	}
@@ -104,6 +104,12 @@ client.on("message", (message) =>
 	{
 		message.channel.send("https://github.com/nuclearphone/tommunisticbot");
 		console.log("someone requested a git " + message.author.id);
+		logfile();
+	}
+	else if (message.content.includes("yam"))
+	{
+		message.channel.send("yam");
+		console.log("yam");
 		logfile();
 	}
 });
