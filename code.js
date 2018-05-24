@@ -96,7 +96,7 @@ client.on("message", (message) =>
 	// slurp damn thats a good margarita
 	else if (message.content.startsWith(config.prefix + "slurp"))
 	{
-		message.channel.send({files:[{attachment:'tommunism/damnthatsagoodmargarita.png'}]});
+		message.channel.send({files:[{attachment: config.slurp}]});
 		console.log("damn thats a good margarita  " + message.author.id);
 		logfile("slurped a good margarita" + message.author.id);
 	}
@@ -113,6 +113,9 @@ client.on("message", (message) =>
 		console.log("yam");
 		logfile();
 	}
+	//i hate you all so im making this part impossible to read
+	else if(message.content.startsWith(config.prefix+"dong")){message.channel.send({files:[{attachment:config.dong}]});
+		console.log("donger"+message.author.id);logfile();}
 });
 
 client.login(config.token);
