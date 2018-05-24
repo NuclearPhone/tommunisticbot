@@ -115,7 +115,7 @@ client.on("message", (message) =>
 	}
 	//i hate you all so im making this part impossible to read
 	else if(message.content.startsWith(config.prefix+"dong")){message.channel.send({files:[{attachment:config.dong}]});
-		console.log("donger "+message.author.id);logfile();
+		console.log("donger "+message.author.id);logfile();}
 });
 
 client.login(config.token);
