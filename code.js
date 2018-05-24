@@ -38,7 +38,7 @@ client.on("message", (message) =>
 
 
 	//removes botception
-	if (message.author.bot) return;
+	if (message.author.bot /*&& message.channel.id != 416165432140234754*/) return;
 	
 	if (message.content.indexOf(config.prefix) !==0 && message.content.indexOf("yam") < 0) return;
 
@@ -111,14 +111,15 @@ client.on("message", (message) =>
 	else if (message.content.includes("yam"))
 	{
 		message.channel.send("yam");
-		console.log("yam");
-		logfile();
 	}
 	//i hate you all so im making this part impossible to read
 	else if(cmd=="dong"){message.channel.send({files:[{attachment:config.dong}]});
 		console.log("donger "+message.author.id);logfile();}
 	//change actual username
-	else if (message.content.startsWith(config.prefix+"CHANGENAME")){}
+	else if (cmd=="CHANGENAME"&& config.ultimateowner.indexOf(message.author.id) < 0)
+	{
+	
+	}
 });
 
 client.login(config.token);
