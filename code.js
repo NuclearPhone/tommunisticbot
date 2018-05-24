@@ -49,22 +49,23 @@ client.on("message", (message) =>
 	}
 	//tokenize stuff
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
+	const cmd = args.shift().toLowerCase();
+	
 
 	//actual code
 	
-	if (message.content.startsWith(config.prefix + "ping"))
+	if (cmd == "ping")
 	{
 		message.channel.send("Pong!");
 		console.log(message.content + " " + message.author.id);
 		logfile();
 	}
-	else if (message.content.startsWith(config.prefix + "help"))
+	else if (cmd == "help")
 	{
 		fs.readFile('./help.txt', (err, data) => {if (err) throw err;message.author.send('henol i guess\n' + data)});
 	}
 	//random tommunism selector
-	else if (message.content.startsWith(config.prefix + "tommunism"))
+	else if (cmd == "tommunism")
 	{
 		var i = Math.floor(Math.random() * 9) + 1;
 		message.channel.send({files: [{attachment: config.imagefolder + i + '.png'}]})
@@ -72,14 +73,14 @@ client.on("message", (message) =>
 		logfile();
 	}
 	//change presence
-	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == true)
+	else if (cmd == "presence" && config.privilegedusers.includes(message.author.id) == true)
 	{	
 		client.user.setPresence({game: { name: ' ' + args.join(" ")}, status: 'online' });
 		message.channel.send("Presence has been changed to: " + args.join(" "));
 		console.log(message.content + " " + args + "    " + message.author.id);
 		logfile();
 	}
-	else if (message.content.startsWith(config.prefix + "presence") && config.privilegedusers.includes(message.author.id) == false)
+	else if (cmd == "presence" && config.privilegedusers.includes(message.author.id) == false)
 	{
 		message.channel.send("fRIIICK fRiCK oFF! FRIcK OfF!");i
 		console.log(message.author.id);
@@ -87,21 +88,21 @@ client.on("message", (message) =>
 		logfile("got fricced");
 	}
 	//succ command
-	else if (message.content.startsWith(config.prefix + "succ"))
+	else if (cmd == "succ")
 	{
 		message.channel.send({files: [{attachment: config.succimg}]});
 		console.log(message.content + " " + message.author.id);
 		logfile();
 	}
 	// slurp damn thats a good margarita
-	else if (message.content.startsWith(config.prefix + "slurp"))
+	else if (cmd == "slurp")
 	{
 		message.channel.send({files:[{attachment: config.slurp}]});
 		console.log("damn thats a good margarita  " + message.author.id);
 		logfile("slurped a good margarita" + message.author.id);
 	}
 	//displays git link
-	else if (message.content.startsWith(config.prefix + "git"))
+	else if (cmd == "git")
 	{
 		message.channel.send("https://github.com/nuclearphone/tommunisticbot");
 		console.log("someone requested a git " + message.author.id);
@@ -114,8 +115,10 @@ client.on("message", (message) =>
 		logfile();
 	}
 	//i hate you all so im making this part impossible to read
-	else if(message.content.startsWith(config.prefix+"dong")){message.channel.send({files:[{attachment:config.dong}]});
+	else if(cmd=="dong"){message.channel.send({files:[{attachment:config.dong}]});
 		console.log("donger "+message.author.id);logfile();}
+	//change actual username
+	else if (message.content.startsWith(config.prefix+"CHANGENAME")){}
 });
 
 client.login(config.token);
