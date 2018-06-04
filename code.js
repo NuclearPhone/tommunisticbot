@@ -40,7 +40,7 @@ client.on("message", (message) =>
 	//removes botception
 	if (message.author.bot /*&& message.channel.id != 416165432140234754*/) return;
 	
-	if (message.content.indexOf(config.prefix) !==0 && message.content.indexOf("yam") < 0) return;
+	if (message.content.indexOf(config.prefix) !==0 && message.content.indexOf("yam" || "bean") < 0) return;
 
 	//bean machine
 	if (config.bannedusers.includes(message.author.id) == true ) {
@@ -104,7 +104,7 @@ client.on("message", (message) =>
 	//displays git link
 	else if (cmd == "git")
 	{
-		message.channel.send("https://github.com/nuclearphone/tommunisticbot");
+		message.channel.send("https://gitlab.com/NuclearPhone/tommunisticbot");
 		console.log("someone requested a git " + message.author.id);
 		logfile();
 	}
@@ -112,13 +112,17 @@ client.on("message", (message) =>
 	{
 		message.channel.send("yam");
 	}
+	else if (message.content.includes("bean"))
+	{
+		message.channel.send("bean");
+	}
 	//i hate you all so im making this part impossible to read
 	else if(cmd=="dong"){message.channel.send({files:[{attachment:config.dong}]});
 		console.log("donger "+message.author.id);logfile();}
 	//change actual username
 	else if (cmd=="CHANGENAME"&& config.ultimateowner.indexOf(message.author.id) < 0)
 	{
-	
+		
 	}
 });
 
